@@ -1,0 +1,23 @@
+{
+    "data": [
+        {
+            "userId": 487,
+            "name": "李金松",
+            "phone": "18523590976",
+            "loginName": null,
+            "corpUserId": null
+        },
+        {
+            "userId": 933,
+            "name": "马伟胜",
+            "phone": "15823261536",
+            "loginName": null,
+            "corpUserId": null
+        }
+    ],
+    "errorCode": null,
+    "errorMsg": null,
+    "success": true,
+    "page": null,
+    "paging": false
+}

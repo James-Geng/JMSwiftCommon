@@ -1,0 +1,22 @@
+{
+  "name": "JMSwiftCommon",
+  "version": "0.1.0",
+  "summary": "A short description of JMSwiftCommon.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/1345492794@qq.com/JMSwiftCommon",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "1345492794@qq.com": "gengruijie@yunniao.me"
+  },
+  "source": {
+    "git": "https://github.com/1345492794@qq.com/JMSwiftCommon.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "JMSwiftCommon/Classes/**/*"
+}

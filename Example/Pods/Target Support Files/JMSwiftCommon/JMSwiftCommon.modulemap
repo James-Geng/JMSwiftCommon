@@ -1,0 +1,6 @@
+framework module JMSwiftCommon {
+  umbrella header "JMSwiftCommon-umbrella.h"
+
+  export *
+  module * { export * }
+}
