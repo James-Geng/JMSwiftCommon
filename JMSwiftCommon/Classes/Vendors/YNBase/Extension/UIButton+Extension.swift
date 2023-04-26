@@ -10,7 +10,7 @@
 import Foundation
 import UIKit
 
-typealias ActionBlock = ((UIButton)->Void)
+public typealias ActionBlock = ((UIButton)->Void)
 
 extension UIButton {
     
@@ -39,7 +39,7 @@ extension UIButton {
     }
     
     /// 点击回调
-    @objc private func btnDelayClick(_ button: UIButton) {
+    @objc public func btnDelayClick(_ button: UIButton) {
         actionBlock?(button)
         isEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now() + actionDelay) { [weak self] in
@@ -51,7 +51,7 @@ extension UIButton {
     }
     
     /// 添加延迟点击事件
-    func addDelayAction(_ delay: TimeInterval = 0, action: @escaping ActionBlock) {
+    public func addDelayAction(_ delay: TimeInterval = 0, action: @escaping ActionBlock) {
         addTarget(self, action: #selector(btnDelayClick(_:)) , for: .touchUpInside)
         actionDelay = delay
         actionBlock = action
