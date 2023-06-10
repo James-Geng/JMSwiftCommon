@@ -768,7 +768,7 @@ extension UIImage {
             break
         default:
             DispatchQueue.main.async {
-                YNKeyWindow()?.yn_showToast("没有相册的存储权限")
+                YNKeyWindow()?.yn_showToast("There is no storage permission for albums")
             }
             return
         }
@@ -780,12 +780,12 @@ extension UIImage {
         }) {(isSuccess: Bool, error: Error?) in
             if isSuccess {
                 DispatchQueue.main.async {
-                    YNKeyWindow()?.yn_showToast("保存成功")
+                    YNKeyWindow()?.yn_showToast("Save successfully")
                 }
             } else{
                 DispatchQueue.main.async {
                     if let error = error as NSError?,error.code == 2047 {
-                        YNKeyWindow()?.yn_showToast("没有相册的存储权限")
+                        YNKeyWindow()?.yn_showToast("There is no storage permission for albums")
                     }
                 }
             }
@@ -814,7 +814,7 @@ extension UITextField {
     func yn_addDoneButtonForKeyboard() {
         let bar = UIToolbar(frame: CGRect(x: 0, y: 0, width: YN_SCREEN_WIDTH, height: 44))
         let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let item = UIBarButtonItem(title: "完成", style: .plain, target: self, action: #selector(shouldEndEditing))
+        let item = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(shouldEndEditing))
         bar.items = [spaceItem,item]
         inputAccessoryView = bar
     }
