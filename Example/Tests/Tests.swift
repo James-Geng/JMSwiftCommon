@@ -1,5 +1,4 @@
 import XCTest
-import JMSwiftCommon
 
 class Tests: XCTestCase {
     

@@ -1,15 +1,22 @@
 PODS:
-  - JMSwiftCommon (0.1.0)
+  - JMSwiftCommon (0.1.5):
+    - SnapKit (~> 4.2.0)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - JMSwiftCommon (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 EXTERNAL SOURCES:
   JMSwiftCommon:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JMSwiftCommon: 21156d34e00e8f0a6f46f70d0dba25330c30e5c0
+  JMSwiftCommon: 028b8b8d9dc930c2a7677d89d7216baadce64f64
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: e6d18c596e556e2bc31c68a4c7e0d702aa2d0e94
 

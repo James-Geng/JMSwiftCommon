@@ -1,22 +1,35 @@
 {
   "name": "JMSwiftCommon",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "summary": "A short description of JMSwiftCommon.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/1345492794@qq.com/JMSwiftCommon",
+  "homepage": "https://github.com/James-Geng",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "1345492794@qq.com": "gengruijie@yunniao.me"
+    "1345492794@qq.com": "gengruijie@foxmail.com"
   },
   "source": {
-    "git": "https://github.com/1345492794@qq.com/JMSwiftCommon.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/James-Geng/JMSwiftCommon.git",
+    "tag": "0.1.5"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "13.0"
   },
-  "source_files": "JMSwiftCommon/Classes/**/*"
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "5.0"
+  },
+  "source_files": "JMSwiftCommon/Classes/**/*",
+  "dependencies": {
+    "SnapKit": [
+      "~> 4.2.0"
+    ]
+  },
+  "resource_bundles": {
+    "JMVideoPlayer": [
+      "JMVideoPlayer/Assets/*.{xcassets}"
+    ]
+  }
 }
