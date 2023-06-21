@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class HTGCDTimer: NSObject {
+public class HTGCDTimer: NSObject {
     typealias actionBlock = (NSInteger) -> Void
     /// 执行时间
     private var interval: TimeInterval!

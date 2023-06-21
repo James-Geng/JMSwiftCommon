@@ -263,13 +263,13 @@ public class HTPlayer: UIView {
         ht_setFullScreenTopBannerADView()
     }
     
-    func ht_setRemoveAD( removedAD:Bool) {
+    public func ht_setRemoveAD( removedAD:Bool) {
         
         self.contentView.ht_setRemoveAD(removedAD: removedAD)
     }
     
     /// 设置播放时间
-    func ht_setCurrentDuration( _ currentDuration: TimeInterval ) {
+    public func ht_setCurrentDuration( _ currentDuration: TimeInterval ) {
         
         self.currentDuration = currentDuration
         
