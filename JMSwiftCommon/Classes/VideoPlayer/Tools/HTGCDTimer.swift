@@ -68,7 +68,7 @@ public class HTGCDTimer: NSObject {
 
 extension HTGCDTimer {
     /// 开始定时器
-    func start() {
+    public func start() {
         timer.schedule(deadline: .now() + delaySecs, repeating: interval)
         timer.setEventHandler { [weak self] in
             guard let strongSelf = self else {
@@ -85,7 +85,7 @@ extension HTGCDTimer {
     }
 
     /// 暂停
-    func suspend() {
+    public func suspend() {
         if isRuning {
             timer.suspend()
             isRuning = false
@@ -93,7 +93,7 @@ extension HTGCDTimer {
     }
 
     /// 恢复定时器
-    func resume() {
+    public func resume() {
         if !isRuning {
             timer.resume()
             isRuning = true
@@ -101,7 +101,7 @@ extension HTGCDTimer {
     }
 
     /// 取消定时器
-    func cancel() {
+    public func cancel() {
         if !isRuning {
             resume()
         }
