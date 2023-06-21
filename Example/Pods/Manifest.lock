@@ -1,5 +1,5 @@
 PODS:
-  - JMSwiftCommon (0.1.7):
+  - JMSwiftCommon (0.1.8):
     - SnapKit (~> 4.2.0)
   - SnapKit (4.2.0)
 
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JMSwiftCommon: 9e2b27c9b66bbf05adffdeef4ef673355c7698b8
+  JMSwiftCommon: 1d089c32204d94d8100e36bcce91f839c972efed
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: e6d18c596e556e2bc31c68a4c7e0d702aa2d0e94

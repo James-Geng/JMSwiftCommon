@@ -155,7 +155,7 @@ extension HTSubtitles {
     ///   - payload: Inout payload
     ///   - time: Time
     /// - Returns: String
-    static func ht_searchSubtitles(_ payload: NSDictionary?, _ time: TimeInterval) -> String? {
+    public static func ht_searchSubtitles(_ payload: NSDictionary?, _ time: TimeInterval) -> String? {
         let predicate = NSPredicate(format: "(%f >= %K) AND (%f <= %K)", time, "from", time, "to")
         
         guard let values = payload?.allValues, let result = (values as NSArray).filtered(using: predicate).first as? NSDictionary else {

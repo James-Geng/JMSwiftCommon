@@ -9,23 +9,23 @@ import Foundation
 import UIKit
 
 public class HTGCDTimer: NSObject {
-    typealias actionBlock = (NSInteger) -> Void
+    public typealias actionBlock = (NSInteger) -> Void
     /// 执行时间
-    private var interval: TimeInterval!
+    var interval: TimeInterval!
     /// 延迟时间
-    private var delaySecs: TimeInterval!
+    var delaySecs: TimeInterval!
     /// 队列
-    private var serialQueue: DispatchQueue!
+    var serialQueue: DispatchQueue!
     /// 是否重复
-    private var repeats: Bool = true
+    var repeats: Bool = true
     /// 响应
-    private var action: actionBlock?
+    var action: actionBlock?
     /// 定时器
-    private var timer: DispatchSourceTimer!
+    var timer: DispatchSourceTimer!
     /// 是否正在运行
-    private var isRuning: Bool = false
+    var isRuning: Bool = false
     /// 响应次数
-    private(set) var actionTimes: NSInteger = 0
+    var actionTimes: NSInteger = 0
 
     /// 创建定时器
     ///
@@ -35,7 +35,7 @@ public class HTGCDTimer: NSObject {
     ///   - queue: 定时器调用的队列，默认主队列
     ///   - repeats: 是否重复执行，默认true
     ///   - action: 响应
-    init(interval: TimeInterval, delaySecs: TimeInterval = 0, queue: DispatchQueue = .main, repeats: Bool = true, action: actionBlock?) {
+    public init(interval: TimeInterval, delaySecs: TimeInterval = 0, queue: DispatchQueue = .main, repeats: Bool = true, action: actionBlock?) {
         super.init()
         self.interval = interval
         self.delaySecs = delaySecs
