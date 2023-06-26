@@ -25,6 +25,9 @@ public protocol HTPlayerDelegate: AnyObject {
     /// 播放器状态变化
     func playerObserveStatus(_ player: HTPlayer, playerState state: HTPlayerPlayState)
     
+    /// 播放器卡顿检测及次数
+    func playerKaDunCount(_ player: HTPlayer, count kaCount:Int)
+    
     /// 点击锁屏
     func player(_ player: HTPlayer, clickPlayLockButton lock: Bool)
     

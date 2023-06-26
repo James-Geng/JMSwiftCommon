@@ -897,4 +897,9 @@ extension HTPlayer:HTPlayerBaseDelegate {
         
         delegate?.playerObserveStatus(self, playerState: self.contentView.playState)
     }
+    
+    public func didKaDunCount(in player: HTPlayerBaseView, count kaCount: Int) {
+        
+        delegate?.playerKaDunCount(self, count: kaCount)
+    }
 }

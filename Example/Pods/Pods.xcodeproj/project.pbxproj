@@ -83,7 +83,7 @@
 		982404441A3832D46BCADF5CC27EF863 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD15E7A2AFE53263B4335C9B3D9813 /* UILayoutSupport+Extensions.swift */; };
 		9DC7300DF42D513C719722B4B731D4B8 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975457FA577D667D0257900DF1D4FDD /* ConstraintView+Extensions.swift */; };
 		A1588FBB16A5ECA3DBCDCB89DE11821C /* HTPleyFastForwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80F1DAE7D0F2D63375EB9CBD6B8FC7 /* HTPleyFastForwardView.swift */; };
-		A4A7DCF9081ABDB01891A52E0D11F186 /* JMSwiftCommon-JMVideoPlayer in Resources */ = {isa = PBXBuildFile; fileRef = F238AA947692A80C7F8E5F510F51B27F /* JMSwiftCommon-JMVideoPlayer */; };
+		A4A7DCF9081ABDB01891A52E0D11F186 /* JMVideoPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F238AA947692A80C7F8E5F510F51B27F /* JMVideoPlayer.bundle */; };
 		A6CCAB269795D13A72475CF197B3C805 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB01221055BDABDD47999C671F4A9BD /* ConstraintItem.swift */; };
 		A71F0FECB15A88BE59B14B9594F99D6C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D60561E491F0BB0E95F97FD26DC6B /* Helper.swift */; };
 		A803A1A988AB64819C25D81F3AC5C583 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3284DB6C9BFEF88606695BBC11E150 /* ConstraintView.swift */; };
@@ -217,7 +217,7 @@
 		67FDB159B06EF5D8A2F0420F7CAF1092 /* YNUnicode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YNUnicode.swift; sourceTree = "<group>"; };
 		695FD5F0BA0170AED32CB059ED69D498 /* Pods-JMSwiftCommon_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JMSwiftCommon_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6CACD95C459F4D08F9C1E57893F55090 /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Source/ConstraintDescription.swift; sourceTree = "<group>"; };
-		6D4BE4D2B14B4477D7230763A348B4D7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		6D4BE4D2B14B4477D7230763A348B4D7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6D80F1DAE7D0F2D63375EB9CBD6B8FC7 /* HTPleyFastForwardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTPleyFastForwardView.swift; sourceTree = "<group>"; };
 		6E6251E9FDFD7590237C9C7B962E17F4 /* PageViewManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PageViewManager.swift; sourceTree = "<group>"; };
 		72FFC9245EE72662AA8AA74E9823DD4D /* HTGCDTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTGCDTimer.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		7A3284DB6C9BFEF88606695BBC11E150 /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
 		7A4B1A6E2122D01C10D4E37C3F5169DF /* YNDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YNDialog.swift; sourceTree = "<group>"; };
 		807F5279ECA1E77BEC4455F1645BF6D7 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
-		82601A726738BB3F3AFF5A4EE5161983 /* JMSwiftCommon.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JMSwiftCommon.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		82601A726738BB3F3AFF5A4EE5161983 /* JMSwiftCommon.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = JMSwiftCommon.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		83212DB64BBC29F536B1A924F3D88615 /* Pods-JMSwiftCommon_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JMSwiftCommon_Example.release.xcconfig"; sourceTree = "<group>"; };
 		840D60561E491F0BB0E95F97FD26DC6B /* Helper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		848E9BA38AE7A77B37C78B343E836974 /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
@@ -246,10 +246,10 @@
 		963CA5950155D3F0A40ABCDD372EA4E1 /* Pods-JMSwiftCommon_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JMSwiftCommon_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0879B88C1997F5044F17335F625105 /* YNArrayExt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YNArrayExt.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9ED7980A45AC9D8109A234D4AD7778AA /* Pods-JMSwiftCommon_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JMSwiftCommon_Example-umbrella.h"; sourceTree = "<group>"; };
 		A3499D06B7741051669EFC6E6A929A57 /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
-		A5A8B46CC735F2219E827CCDE58F2F91 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		A5A8B46CC735F2219E827CCDE58F2F91 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A673415D3A01EA3A76D6CFA7DECE0BA9 /* HTSubtitles.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTSubtitles.swift; sourceTree = "<group>"; };
 		A9D6C5A3385E9D8E82822516B6D02CF1 /* JMSwiftCommon-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JMSwiftCommon-Info.plist"; sourceTree = "<group>"; };
 		A9F21E5DCA1963118EDDF5B610AC95D0 /* Pods-JMSwiftCommon_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JMSwiftCommon_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 		E887F5BC85E664CAF1EAD58DB6EF027D /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		EDF18F7D0A5148F27A8DAE6FC262F482 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EE77CF731D431D26CF320CC96C40A5DB /* HTRotateAnimationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTRotateAnimationView.swift; sourceTree = "<group>"; };
-		F238AA947692A80C7F8E5F510F51B27F /* JMSwiftCommon-JMVideoPlayer */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "JMSwiftCommon-JMVideoPlayer"; path = JMVideoPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		F238AA947692A80C7F8E5F510F51B27F /* JMVideoPlayer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JMVideoPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77013202743682305AD953657CB2D89 /* YNGlobalTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YNGlobalTimer.swift; sourceTree = "<group>"; };
 		F7B4467DFABED414F81EA67B8767787D /* PageTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
 		FB3146B382C3292E28917B8CF4356923 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
@@ -368,7 +368,6 @@
 				0D12D391D4D6582BBB24E9E3726A8850 /* HTAVPlayer.swift */,
 				B4C694DAEC1840ADD52718D408A97C3F /* HTPlayerBaseView.swift */,
 			);
-			name = PlayerObject;
 			path = PlayerObject;
 			sourceTree = "<group>";
 		};
@@ -398,7 +397,6 @@
 				88F84CB8678D0567F70A1E2FE9FB668E /* YNTools.swift */,
 				67FDB159B06EF5D8A2F0420F7CAF1092 /* YNUnicode.swift */,
 			);
-			name = SwiftKit;
 			path = SwiftKit;
 			sourceTree = "<group>";
 		};
@@ -424,7 +422,6 @@
 			children = (
 				E3ADC5DD9DDC0F60C792364000A54162 /* YNUDConfig.swift */,
 			);
-			name = Config;
 			path = Config;
 			sourceTree = "<group>";
 		};
@@ -441,7 +438,6 @@
 			children = (
 				D5146DC3906C92C44C675802D0517081 /* YNTool.swift */,
 			);
-			name = Tools;
 			path = Tools;
 			sourceTree = "<group>";
 		};
@@ -460,7 +456,6 @@
 				E43582BA82AA10A9023E8EC7069402A4 /* HTImageHelper.swift */,
 				A673415D3A01EA3A76D6CFA7DECE0BA9 /* HTSubtitles.swift */,
 			);
-			name = Tools;
 			path = Tools;
 			sourceTree = "<group>";
 		};
@@ -475,7 +470,6 @@
 				C69820D70ABB59EAC3C98FAD546F9085 /* PageView.swift */,
 				6E6251E9FDFD7590237C9C7B962E17F4 /* PageViewManager.swift */,
 			);
-			name = DNSPagerView;
 			path = DNSPagerView;
 			sourceTree = "<group>";
 		};
@@ -487,7 +481,6 @@
 				1B8D3D9033D0AB5600ABA7201342D952 /* HTFullScreenLeftController.swift */,
 				ADB07ACEFCEBD2BF588D7B4C92B8DAE0 /* HTFullScreenRightController.swift */,
 			);
-			name = HTFullScreenController;
 			path = HTFullScreenController;
 			sourceTree = "<group>";
 		};
@@ -495,7 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB803BC9FC90F4A04EF51DD86FFDFA7 /* JMSwiftCommon */,
-				F238AA947692A80C7F8E5F510F51B27F /* JMSwiftCommon-JMVideoPlayer */,
+				F238AA947692A80C7F8E5F510F51B27F /* JMVideoPlayer.bundle */,
 				305466835BCE6FC64C38ADD5A3998DE5 /* Pods-JMSwiftCommon_Example */,
 				C0F4DED6BB495F0B1C21EAC63E1F8C62 /* Pods-JMSwiftCommon_Tests */,
 				979486118B3E90C08386079D57962701 /* SnapKit */,
@@ -508,7 +501,6 @@
 			children = (
 				F77013202743682305AD953657CB2D89 /* YNGlobalTimer.swift */,
 			);
-			name = Timer;
 			path = Timer;
 			sourceTree = "<group>";
 		};
@@ -545,7 +537,6 @@
 				FCCE64C2740AEB0961865C946BFCE2EE /* UIView+Extension.swift */,
 				B077F4630F1D918CB7D0E87022E8E899 /* UIViewController+Extension.swift */,
 			);
-			name = Extension;
 			path = Extension;
 			sourceTree = "<group>";
 		};
@@ -566,7 +557,6 @@
 				7A4B1A6E2122D01C10D4E37C3F5169DF /* YNDialog.swift */,
 				611D11FBCB56F189C74CBDA6135077A7 /* DNSPagerView */,
 			);
-			name = Tools;
 			path = Tools;
 			sourceTree = "<group>";
 		};
@@ -617,7 +607,6 @@
 				4DCD15E7A2AFE53263B4335C9B3D9813 /* UILayoutSupport+Extensions.swift */,
 				D28E246011041898C1EA6C3AAF01971C /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -694,7 +683,6 @@
 				1C4567E8B6BC4B9321C0C226CA8677B5 /* SwiftKit */,
 				AEEEB4EBF841FC51D205D8EFD7202DB8 /* Tools */,
 			);
-			name = YNBase;
 			path = YNBase;
 			sourceTree = "<group>";
 		};
@@ -712,7 +700,6 @@
 				64D30790AAEC37D0E74BBCEA0F8D4031 /* HTSlider.swift */,
 				671DD83D030B2355A201A471B3EFFC54 /* HTFullScreenController */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -721,7 +708,6 @@
 			children = (
 				FF214C31FCF1E4FFDB48E7B53BA172AF /* YNRouter */,
 			);
-			name = YNService;
 			path = YNService;
 			sourceTree = "<group>";
 		};
@@ -732,7 +718,6 @@
 				4075EE181375B5966E17B261CD5023C3 /* HTPlayerContentViewDelegate.swift */,
 				18F46EB8F5EA08407ED11D92F5719844 /* HTPlayerDelegate.swift */,
 			);
-			name = Protocols;
 			path = Protocols;
 			sourceTree = "<group>";
 		};
@@ -745,7 +730,6 @@
 				76C136289A897F1B5B37FEA64965E116 /* Timer */,
 				4FBF18AEF835C6D8EDC7367575285239 /* Tools */,
 			);
-			name = Common;
 			path = Common;
 			sourceTree = "<group>";
 		};
@@ -754,7 +738,6 @@
 			children = (
 				363974646654B7383DDC02328C2CA091 /* YNAppleAuthManager.swift */,
 			);
-			name = AppleLogin;
 			path = AppleLogin;
 			sourceTree = "<group>";
 		};
@@ -776,7 +759,6 @@
 			children = (
 				B697732958E60E4776A89D30E9D68108 /* HTPlayerConfigure.swift */,
 			);
-			name = Config;
 			path = Config;
 			sourceTree = "<group>";
 		};
@@ -788,7 +770,6 @@
 				C99B1A6B3CDAD30E4FD53F86D11083B9 /* String+Routerextension.swift */,
 				FBD39A1DED6EB614C93699092D7A9B17 /* URL+Routerextension.swift */,
 			);
-			name = YNRouter;
 			path = YNRouter;
 			sourceTree = "<group>";
 		};
@@ -882,7 +863,7 @@
 			);
 			name = "JMSwiftCommon-JMVideoPlayer";
 			productName = JMVideoPlayer;
-			productReference = F238AA947692A80C7F8E5F510F51B27F /* JMSwiftCommon-JMVideoPlayer */;
+			productReference = F238AA947692A80C7F8E5F510F51B27F /* JMVideoPlayer.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		4BC98FE88854EED165C5E005787108F4 /* Pods-JMSwiftCommon_Example */ = {
@@ -960,7 +941,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4A7DCF9081ABDB01891A52E0D11F186 /* JMSwiftCommon-JMVideoPlayer in Resources */,
+				A4A7DCF9081ABDB01891A52E0D11F186 /* JMVideoPlayer.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1211,6 +1192,7 @@
 			baseConfigurationReference = D5DA3BA56E6556F45E6EB5B55CE877E1 /* JMSwiftCommon.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/JMSwiftCommon";
+				DEVELOPMENT_TEAM = QKGSQ47H4N;
 				IBSC_MODULE = JMSwiftCommon;
 				INFOPLIST_FILE = "Target Support Files/JMSwiftCommon/ResourceBundle-JMVideoPlayer-JMSwiftCommon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1465,6 +1447,7 @@
 			baseConfigurationReference = 122AAEA1F6F31F8AD964FD86ED6A8086 /* JMSwiftCommon.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/JMSwiftCommon";
+				DEVELOPMENT_TEAM = QKGSQ47H4N;
 				IBSC_MODULE = JMSwiftCommon;
 				INFOPLIST_FILE = "Target Support Files/JMSwiftCommon/ResourceBundle-JMVideoPlayer-JMSwiftCommon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -19,4 +19,6 @@ public protocol HTPlayerBaseDelegate: AnyObject {
     func bufferingSomeSecond(in player: HTPlayerBaseView)
     
     func sliderTimerAction(in player: HTPlayerBaseView)
+    
+    func didKaDunCount(in player: HTPlayerBaseView, count kaCount:Int)
 }
