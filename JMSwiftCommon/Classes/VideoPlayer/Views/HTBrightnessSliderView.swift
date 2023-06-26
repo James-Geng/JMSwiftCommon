@@ -49,7 +49,7 @@ class HTBrightnessSliderView:UIView {
     
     public lazy var var_ContentView: UIView = {
         let view = UIView()
-        view.backgroundColor = YNHexString("#000000",alpha: 0.35)
+        view.backgroundColor = YNHexString("#000000",alpha: 0.5)
         return view
     }()
     
@@ -61,7 +61,7 @@ class HTBrightnessSliderView:UIView {
     
     public lazy var var_LeftIconImageView: UIImageView = {
         let imageView = UIImageView()
-        if let image = UIImage(systemName: "sun.max.fill") {
+        if let image = UIImage(systemName: "icon_pleyar_light") {
             imageView.image = image
             imageView.tintColor = .black
         }

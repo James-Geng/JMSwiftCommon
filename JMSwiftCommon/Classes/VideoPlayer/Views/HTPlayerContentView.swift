@@ -595,9 +595,9 @@ class HTPlayerContentView: HTPlayerBaseContentView {
        }
         
         brightnessSliderView.snp.makeConstraints { make in
-            make.height.equalTo(30.fit)
+            make.height.equalTo(38.fit)
             make.width.equalTo(STATIC_BrightnessSliderViewWidth)
-            make.top.equalTo(self).offset(24.fit)
+            make.top.equalTo(self).offset(28.fit)
             make.centerX.equalTo(self)
         }
    }
