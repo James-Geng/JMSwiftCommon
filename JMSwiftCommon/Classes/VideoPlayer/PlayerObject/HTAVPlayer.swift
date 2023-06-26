@@ -43,7 +43,7 @@ public class HTAVPlayer: HTPlayerBaseView {
                     
                     self.isPlaybackLikelyToKeepUp = playerItem.isPlaybackLikelyToKeepUp
                     
-                    if !self.isPlaybackLikelyToKeepUp {
+                    if !self.isPlaybackLikelyToKeepUp && playerItem.isPlaybackBufferEmpty == true {
                         
                         //print("正在卡顿")
                         
@@ -115,7 +115,7 @@ private extension HTAVPlayer {
         
         self.isPlaybackLikelyToKeepUp = playerItem.isPlaybackLikelyToKeepUp
         
-        if !self.isPlaybackLikelyToKeepUp {
+        if !self.isPlaybackLikelyToKeepUp && playerItem.isPlaybackBufferEmpty == true {
             
             //print("正在卡顿")
             

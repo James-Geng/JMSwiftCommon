@@ -279,6 +279,12 @@ class HTPlayerContentView: HTPlayerBaseContentView {
         let view = MPVolumeView()
         return view.subviews.first(where: { $0 is UISlider }) as? UISlider
     }()
+    
+    private lazy var brightnessSliderView: HTBrightnessSliderView = {
+        let view = HTBrightnessSliderView()
+        view.isHidden = true
+        return view
+    }()
 
     private var isShowMorePanel: Bool = false {
         didSet {
@@ -387,6 +393,7 @@ class HTPlayerContentView: HTPlayerBaseContentView {
         addSubview(fullScreen_TopADBannerView)
         addSubview(fullScreen_PauseADView)
        addSubview(placeholderStackView)
+        addSubview(brightnessSliderView)
 
        addGestureRecognizer(tapGesture)
        addGestureRecognizer(panGesture)
@@ -586,6 +593,13 @@ class HTPlayerContentView: HTPlayerBaseContentView {
        placeholderStackView.snp.makeConstraints { make in
            make.edges.equalToSuperview()
        }
+        
+        brightnessSliderView.snp.makeConstraints { make in
+            make.height.equalTo(30.fit)
+            make.width.equalTo(STATIC_BrightnessSliderViewWidth)
+            make.top.equalTo(self).offset(24.fit)
+            make.centerX.equalTo(self)
+        }
    }
     
     func ht_reloadBottomContentViewConstraints() {
@@ -1157,6 +1171,12 @@ class HTPlayerContentView: HTPlayerBaseContentView {
                 break
             case .leftVertical:
                 UIScreen.main.brightness -= veloctyPoint.y / 10000
+                
+                print("\n UIScreen.main.brightness = \(UIScreen.main.brightness)")
+                brightnessSliderView.isHidden = false
+                brightnessSliderView.var_sliderValue = UIScreen.main.brightness
+                
+
             case .rightVertical:
                 volumeSlider?.value -= Float(veloctyPoint.y / 10000)
             default:
@@ -1176,6 +1196,14 @@ class HTPlayerContentView: HTPlayerBaseContentView {
             
             fastForwardView.isHidden = true
             
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+                
+                DispatchQueue.main.async {
+
+                    self.brightnessSliderView.ht_hidden()
+                }
+            }
+     
         default:
             break
         }
