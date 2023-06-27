@@ -61,7 +61,7 @@ class HTBrightnessSliderView:UIView {
     
     public lazy var var_LeftIconImageView: UIImageView = {
         let imageView = UIImageView()
-        if let image = UIImage(systemName: "icon_pleyar_light") {
+        if let image = HTImageHelper.imageWithName("icon_pleyar_light") {
             imageView.image = image
             imageView.tintColor = .black
         }
