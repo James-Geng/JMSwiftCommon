@@ -450,7 +450,7 @@ class HTPlayerContentView: HTPlayerBaseContentView {
         }
         
         playLockButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-12.fit)
             make.left.equalTo(10)
             make.size.equalTo(44.fit)
         }
