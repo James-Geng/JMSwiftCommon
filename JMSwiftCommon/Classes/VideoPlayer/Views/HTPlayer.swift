@@ -339,6 +339,14 @@ public extension HTPlayer {
         guard config.rotateStyle != .none else { return }
         if config.rotateStyle == .small, isFullScreen { return }
         if config.rotateStyle == .fullScreen, !isFullScreen { return }
+ 
+        if let vc = yn_topVC {
+            /// 如果正在加载广告时，则禁止屏幕旋转
+            if vc.yn_className == "ALAppLovinVideoViewController" {
+                
+                return;
+            }
+        }
 
         self.delegate?.deviceOrientationWillChange()
         

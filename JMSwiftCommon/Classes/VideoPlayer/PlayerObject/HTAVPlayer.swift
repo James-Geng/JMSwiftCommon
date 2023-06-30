@@ -95,8 +95,35 @@ public class HTAVPlayer: HTPlayerBaseView {
     
     override func seekTo(to time: Double) {
         
+        var var_isPlaying = false
+        
+        if player?.rate != 0.0 {
+            var_isPlaying = true // 记录拖动前的播放状态
+        }
+        
         let dragedCMTime = CMTimeMake(value: Int64(ceil(time)), timescale: 1)
-        player?.seek(to: dragedCMTime, toleranceBefore: .zero, toleranceAfter: .zero)
+        player?.seek(to: dragedCMTime, toleranceBefore: .zero, toleranceAfter: .zero, completionHandler: {[weak self] complete in
+            
+            if complete {
+                
+                if var_isPlaying {
+                    
+                    DispatchQueue.global().asyncAfter(deadline: .now() + 0.26) {
+                        
+                        DispatchQueue.main.async {
+                           
+                            if let self = self {
+                                
+                                self.play()
+                                
+                            }
+                            
+                        }
+                    }
+                    
+                }
+            }
+        })
         
     }
 }

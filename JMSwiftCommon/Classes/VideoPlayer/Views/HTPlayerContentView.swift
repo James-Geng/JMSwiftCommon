@@ -462,7 +462,8 @@ class HTPlayerContentView: HTPlayerBaseContentView {
         }
         
         fastForwardView.snp.makeConstraints { make in
-            make.size.equalTo(88.fit)
+            make.height.equalTo(88.fit)
+            make.width.equalTo(126.fit)
             make.center.equalToSuperview()
         }
         
@@ -914,7 +915,7 @@ class HTPlayerContentView: HTPlayerBaseContentView {
         
         let time = Int(floor(totalDuration))
         let hours = time / 3600
-        let minutes = time / 60
+        let minutes = hours > 0 ? (time - 3600*hours)/60 : time / 60
         let seconds = time % 60
         totalDurationLabel.text = hours == .zero ? String(format: "%02ld:%02ld", minutes, seconds) : String(format: "%02ld:%02ld:%02ld", hours, minutes, seconds)
     }
@@ -923,7 +924,7 @@ class HTPlayerContentView: HTPlayerBaseContentView {
         //print("\nself.currentDuration = \(self.currentDuration)")
         let time = Int(floor(currentDuration))
         let hours = time / 3600
-        let minutes = time / 60
+        let minutes = hours > 0 ? (time - 3600*hours)/60 : time / 60
         let seconds = time % 60
         currentDurationLabel.text = hours == .zero ? String(format: "%02ld:%02ld", minutes, seconds) : String(format: "%02ld:%02ld:%02ld", hours, minutes, seconds)
         
@@ -1132,7 +1133,7 @@ class HTPlayerContentView: HTPlayerBaseContentView {
                 
                 let time = Int(floor(panDirectionBegainCurrentDuration))
                 let hours = time / 3600
-                let minutes = time / 60
+                let minutes = hours > 0 ? (time - 3600*hours)/60 : time / 60
                 let seconds = time % 60
                 let timeText = hours == .zero ? String(format: "%02ld:%02ld", minutes, seconds) : String(format: "%02ld:%02ld:%02ld", hours, minutes, seconds)
                 
