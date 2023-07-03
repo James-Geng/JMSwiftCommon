@@ -141,6 +141,10 @@ public class HTPlayer: UIView {
         return contentView.playState == .ended
     }
     
+    public var isReadyToPlay: Bool {
+        return contentView.playState == .readyToPlay
+    }
+    
     public var title: NSMutableAttributedString? {
         didSet {
             guard let title = title else { return }
@@ -342,6 +346,17 @@ public extension HTPlayer {
  
         if let vc = yn_topVC {
             /// 如果正在加载广告时，则禁止屏幕旋转
+            
+            if let viewController = self.superview?.viewController() {
+                
+                let className = viewController.yn_className
+           
+                if vc.yn_className != className {
+                    
+                    return;
+                }
+            }
+            
             if vc.yn_className == "ALAppLovinVideoViewController" {
                 
                 return;
@@ -377,11 +392,13 @@ public extension HTPlayer {
                     break
                 }
                 
-                DispatchQueue.global().asyncAfter(deadline: .now() + 0.26) {
+                DispatchQueue.global().asyncAfter(deadline: .now() + 0.36) {
                     
                     DispatchQueue.main.async {
 
                         self.delegate?.didClickFullButton(in: self, didClickFullButton: var_isPortrait)
+                        
+//                        self.bufferingSomeSecond()
                     }
                 }
                 
@@ -404,6 +421,19 @@ public extension HTPlayer {
 }
 
 // MARK: ---observe
+
+extension UIView {
+    func viewController() -> UIViewController? {
+        var responder: UIResponder? = self
+        while let nextResponder = responder?.next {
+            if let viewController = nextResponder as? UIViewController {
+                return viewController
+            }
+            responder = nextResponder
+        }
+        return nil
+    }
+}
 
 //private extension HTPlayer {
 //
