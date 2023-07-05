@@ -72,9 +72,13 @@ extension HTSubtitles {
             }
             
             let index = (group as NSString).substring(with: i.range)
+                    
             
             // Get "from" & "to" time
-            regex = try NSRegularExpression(pattern: "\\d{1,2}:\\d{1,2}:\\d{1,2}[,.]\\d{1,3}", options: .caseInsensitive)
+//            regex = try NSRegularExpression(pattern: "\\d{1,2}:\\d{1,2}:\\d{1,2}[,.]\\d{1,3}", options: .caseInsensitive)
+            /// 适配前面没有小时的情况
+            regex = try NSRegularExpression(pattern: "\\d{1,2}:?\\d{1,2}:\\d{1,2}[,.]\\d{1,3}", options: .caseInsensitive)
+            
             match = regex.matches(in: group, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, group.count))
             
             guard match.count == 2 else {
@@ -88,46 +92,151 @@ extension HTSubtitles {
             var h: TimeInterval = 0.0, m: TimeInterval = 0.0, s: TimeInterval = 0.0, c: TimeInterval = 0.0
             
             let fromStr = (group as NSString).substring(with: from.range)
+            
+            let fromStr_m_count = fromStr.filter { $0 == Character(":") }.count
+            
             var scanner = Scanner(string: fromStr)
             if #available(iOS 13.0, *) {
-                h = scanner.scanDouble() ?? 0.0
-                scanner.scanString(":", into: nil)
-                m = scanner.scanDouble() ?? 0.0
-                scanner.scanString(":", into: nil)
-                s = scanner.scanDouble() ?? 0.0
-                scanner.scanString(",", into: nil)
-                c = scanner.scanDouble() ?? 0.0
+                
+                if fromStr_m_count == 1 {
+                  
+                    m = scanner.scanDouble() ?? 0.0
+                    scanner.scanString(":", into: nil)
+                    s = scanner.scanDouble() ?? 0.0
+                    
+                    if fromStr.contains(",") {
+                        scanner.scanString(",", into: nil)
+                        c = scanner.scanDouble() ?? 0.0
+                    }
+                    else if fromStr.contains(".") {
+                        
+                        scanner.scanString(".", into: nil)
+                        c = scanner.scanDouble() ?? 0.0
+                    }
+                    
+                }
+                else {
+                    
+                    h = scanner.scanDouble() ?? 0.0
+                    scanner.scanString(":", into: nil)
+                    m = scanner.scanDouble() ?? 0.0
+                    scanner.scanString(":", into: nil)
+                    s = scanner.scanDouble() ?? 0.0
+                    scanner.scanString(",", into: nil)
+                    c = scanner.scanDouble() ?? 0.0
+                }
+                
+                
             } else {
-                scanner.scanDouble(&h)
-                scanner.scanString(":", into: nil)
-                scanner.scanDouble(&m)
-                scanner.scanString(":", into: nil)
-                scanner.scanDouble(&s)
-                scanner.scanString(",", into: nil)
-                scanner.scanDouble(&c)
+                
+                if fromStr_m_count == 1 {
+                    
+                    scanner.scanDouble(&m)
+                    scanner.scanString(":", into: nil)
+                    scanner.scanDouble(&s)
+                    
+                    
+                    if fromStr.contains(",") {
+                        scanner.scanString(",", into: nil)
+                        scanner.scanDouble(&c)
+                    }
+                    else if fromStr.contains(".") {
+                        
+                        scanner.scanString(".", into: nil)
+                        scanner.scanDouble(&c)
+                    }
+                    
+                    
+                }
+                else {
+                    
+                    scanner.scanDouble(&h)
+                    scanner.scanString(":", into: nil)
+                    scanner.scanDouble(&m)
+                    scanner.scanString(":", into: nil)
+                    scanner.scanDouble(&s)
+                    scanner.scanString(",", into: nil)
+                    scanner.scanDouble(&c)
+                }
+                
+                
             }
             
             let fromTime = (h * 3600.0) + (m * 60.0) + s + (c / 1000.0)
             
             let toStr = (group as NSString).substring(with: to.range)
+            
+            let toStr_m_count = toStr.filter { $0 == Character(":") }.count
+            
             scanner = Scanner(string: toStr)
             if #available(iOS 13.0, *) {
-                h = scanner.scanDouble() ?? 0.0
-                scanner.scanString(":", into: nil)
-                m = scanner.scanDouble() ?? 0.0
-                scanner.scanString(":", into: nil)
-                s = scanner.scanDouble() ?? 0.0
-                scanner.scanString(",", into: nil)
-                c = scanner.scanDouble() ?? 0.0
+                
+                if toStr_m_count == 1 {
+                    
+                    m = scanner.scanDouble() ?? 0.0
+                    scanner.scanString(":", into: nil)
+                    s = scanner.scanDouble() ?? 0.0
+                    
+                    if toStr.contains(",") {
+                        scanner.scanString(",", into: nil)
+                        c = scanner.scanDouble() ?? 0.0
+                    }
+                    else if fromStr.contains(".") {
+                        
+                        scanner.scanString(".", into: nil)
+                        c = scanner.scanDouble() ?? 0.0
+                    }
+                    
+                    
+                }
+                else {
+                    
+                    h = scanner.scanDouble() ?? 0.0
+                    scanner.scanString(":", into: nil)
+                    m = scanner.scanDouble() ?? 0.0
+                    scanner.scanString(":", into: nil)
+                    s = scanner.scanDouble() ?? 0.0
+                    scanner.scanString(",", into: nil)
+                    c = scanner.scanDouble() ?? 0.0
+                }
+                
+                
             } else {
-                scanner.scanDouble(&h)
-                scanner.scanString(":", into: nil)
-                scanner.scanDouble(&m)
-                scanner.scanString(":", into: nil)
-                scanner.scanDouble(&s)
-                scanner.scanString(",", into: nil)
-                scanner.scanDouble(&c)
+                
+                if toStr_m_count == 1 {
+                    
+                    scanner.scanDouble(&m)
+                    scanner.scanString(":", into: nil)
+                    scanner.scanDouble(&s)
+                    
+                    
+                    if toStr.contains(",") {
+                        scanner.scanString(",", into: nil)
+                        scanner.scanDouble(&c)
+                    }
+                    else if fromStr.contains(".") {
+                        
+                        scanner.scanString(".", into: nil)
+                        scanner.scanDouble(&c)
+                    }
+                    
+                    
+                }
+                else {
+                    
+                    scanner.scanDouble(&h)
+                    scanner.scanString(":", into: nil)
+                    scanner.scanDouble(&m)
+                    scanner.scanString(":", into: nil)
+                    scanner.scanDouble(&s)
+                    scanner.scanString(",", into: nil)
+                    scanner.scanDouble(&c)
+                }
+                
+                
             }
+            
+            
             let toTime = (h * 3600.0) + (m * 60.0) + s + (c / 1000.0)
             
             // Get text & check if empty
