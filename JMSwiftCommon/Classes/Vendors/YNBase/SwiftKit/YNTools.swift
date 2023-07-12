@@ -13,12 +13,21 @@ import CommonCrypto
 import Photos
 
 extension Int{
+//    public var fit : Double{
+//        return Double(self) * Double(YNMacro.scale)
+//    }
+    /// 设计图尺寸 360
     public var fit : Double{
-        return Double(self) * Double(YNMacro.scale)
+        
+        return Double(self) * Double(YN_SCREENMIN / 360.0)
     }
-    var cgfloat: CGFloat {
-        return CGFloat(self)
+    public var cgfloat: Double {
+        return Double(self)
     }
+    
+//    var cgfloat: CGFloat {
+//        return CGFloat(self)
+//    }
 }
 
 extension CGFloat{
