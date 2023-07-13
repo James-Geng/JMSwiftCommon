@@ -14,25 +14,33 @@ public class HTSubtitles {
     
     private var parsedPayload: NSDictionary?
     
+    /// 字幕开始寻找索引
+    var subtitleIndex: Int = 0
+    
     // MARK: - Public methods
     
-    public init(file filePath: URL, encoding: String.Encoding = .utf8) throws {
-        // Get string
-        let string = try String(contentsOf: filePath, encoding: encoding)
-        // Parse string
-        parsedPayload = try HTSubtitles.ht_parseSubRip(string)
+    public init() {
+        
     }
     
-    public init(subtitles string: String) throws {
-        // Parse string
-        parsedPayload = try HTSubtitles.ht_parseSubRip(string)
-    }
+//    public init(file filePath: URL, encoding: String.Encoding = .utf8) throws {
+//        // Get string
+//        let string = try String(contentsOf: filePath, encoding: encoding)
+//        // Parse string
+//        parsedPayload = try HTSubtitles.ht_parseSubRip(string)
+//    }
+//    
+//    public init(subtitles string: String) throws {
+//        // Parse string
+//        parsedPayload = try HTSubtitles.ht_parseSubRip(string)
+//    }
     
     /// Search subtitles at time
     ///
     /// - Parameter time: Time
     /// - Returns: String if exists
     public func searchSubtitles(at time: TimeInterval) -> String? {
+        
         return HTSubtitles.ht_searchSubtitles(parsedPayload, time)
     }
     
@@ -266,16 +274,53 @@ extension HTSubtitles {
     /// - Returns: String
     public static func ht_searchSubtitles(_ payload: NSDictionary?, _ time: TimeInterval) -> String? {
         let predicate = NSPredicate(format: "(%f >= %K) AND (%f <= %K)", time, "from", time, "to")
-        
+
         guard let values = payload?.allValues, let result = (values as NSArray).filtered(using: predicate).first as? NSDictionary else {
             return nil
         }
-        
+
         guard let text = result.value(forKey: "text") as? String else {
             return nil
         }
-        
+
         return text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
+    /// Search subtitle on time
+    /// 方法更新，根据索引来查找字幕
+    /// - Parameters:
+    ///   - subtitleArray: 排序好的字典array
+    ///   - time: Time
+    /// - Returns: String
+    public func ht_searchSubtitlesWithArray(_ subtitleArray: [NSDictionary], _ time: TimeInterval) -> String? {
+      
+        // 重置索引，如果时间小于当前索引的字幕开始时间
+        if time < (subtitleArray[safe: subtitleIndex]?["from"] as? TimeInterval ?? 0.0) {
+            subtitleIndex = 0
+        }
+        
+        // 从当前索引开始查找匹配的字幕
+        for index in subtitleIndex..<subtitleArray.count {
+            let subtitleDict = subtitleArray[index]
+            guard let fromTime = subtitleDict["from"] as? TimeInterval,
+                  let toTime = subtitleDict["to"] as? TimeInterval,
+                  let text = subtitleDict["text"] as? String else {
+                continue
+            }
+            
+            if time >= fromTime && time <= toTime {
+                subtitleIndex = index // 更新索引
+                return text.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+        }
+        
+        return nil
+    }
+    
+}
+
+extension Collection {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
 }

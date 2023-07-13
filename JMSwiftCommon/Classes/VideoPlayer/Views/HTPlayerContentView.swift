@@ -18,7 +18,11 @@ class HTPlayerContentView: HTPlayerBaseContentView {
     
     var parsedPayload: NSDictionary?
     
+    var parsedPayloadArray: [NSDictionary]?
+    
     var panDirectionBegainCurrentDuration:Double = 0.0
+    
+    var var_subtitlesParseObject:HTSubtitles = HTSubtitles()
     
     private lazy var placeholderStackView: UIStackView = {
         let view = UIStackView()
@@ -933,8 +937,14 @@ class HTPlayerContentView: HTPlayerBaseContentView {
         /// 字幕开启
         if self.subTitleStatus == 2 {
             /// 如果有字幕则加载字幕(另加字幕调整时间)
-            if let parsedPayload = parsedPayload {
-                self.subTitleLabel.text = HTSubtitles.ht_searchSubtitles(parsedPayload, self.currentDuration + self.subTitleAdjustDuration)
+//            if let parsedPayload = parsedPayload {
+//                self.subTitleLabel.text = HTSubtitles.ht_searchSubtitles(parsedPayload, self.currentDuration + self.subTitleAdjustDuration)
+//            }
+            
+            /// 如果有字幕则加载字幕(另加字幕调整时间，调整为根据索引寻找)
+            if let parsedPayloadArray = parsedPayloadArray {
+                
+                self.subTitleLabel.text = var_subtitlesParseObject.ht_searchSubtitlesWithArray(parsedPayloadArray, self.currentDuration + self.subTitleAdjustDuration)
             }
         }
         else {
@@ -1500,12 +1510,71 @@ extension HTPlayerContentView {
         parsedPayload = try? HTSubtitles.ht_parseSubRip(string)
         
         delegate?.ht_contentView(self, subTitleLoadComplete: parsedPayload)
+        
+        if let parsedPayload = parsedPayload {
+            
+            DispatchQueue.global().async {
+           
+                var var_items:[NSDictionary] = []
+                
+                if let var_keys = parsedPayload.allKeys as? [NSString] {
+                    
+                    let var_sortedKeys = var_keys.sorted { $0.intValue < $1.intValue }
+                    
+                    for var_key in var_sortedKeys {
+                        
+                        if let var_dic = parsedPayload[var_key] as? NSDictionary {
+                            
+                            var_items.append(var_dic)
+                        }
+                    }
+
+                }
+                
+                self.parsedPayloadArray = var_items
+                
+                
+                DispatchQueue.main.async {
+                    
+                }
+            }
+        }
     }
     
     func ht_showByDictionary(dictionaryContent: NSMutableDictionary) {
         // Add Dictionary content direct to Payload
         parsedPayload = dictionaryContent
+        
+        if let parsedPayload = parsedPayload {
+            
+            DispatchQueue.global().async {
+           
+                var var_items:[NSDictionary] = []
+                
+                if let var_keys = parsedPayload.allKeys as? [NSString] {
+                    
+                    let var_sortedKeys = var_keys.sorted { $0.intValue < $1.intValue }
+                    
+                    for var_key in var_sortedKeys {
+                        
+                        if let var_dic = parsedPayload[var_key] as? NSDictionary {
+                            
+                            var_items.append(var_dic)
+                        }
+                    }
+
+                }
+                
+                self.parsedPayloadArray = var_items
+                
+                
+                DispatchQueue.main.async {
+                    
+                }
+            }
+        }
  
+        
     }
 
 }
