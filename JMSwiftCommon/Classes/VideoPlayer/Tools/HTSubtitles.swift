@@ -39,10 +39,10 @@ public class HTSubtitles {
     ///
     /// - Parameter time: Time
     /// - Returns: String if exists
-    public func searchSubtitles(at time: TimeInterval) -> String? {
-        
-        return HTSubtitles.ht_searchSubtitles(parsedPayload, time)
-    }
+//    public func searchSubtitles(at time: TimeInterval) -> String? {
+//        
+//        return HTSubtitles.ht_searchSubtitles(parsedPayload, time)
+//    }
     
 }
 
@@ -272,19 +272,19 @@ extension HTSubtitles {
     ///   - payload: Inout payload
     ///   - time: Time
     /// - Returns: String
-    public static func ht_searchSubtitles(_ payload: NSDictionary?, _ time: TimeInterval) -> String? {
-        let predicate = NSPredicate(format: "(%f >= %K) AND (%f <= %K)", time, "from", time, "to")
-
-        guard let values = payload?.allValues, let result = (values as NSArray).filtered(using: predicate).first as? NSDictionary else {
-            return nil
-        }
-
-        guard let text = result.value(forKey: "text") as? String else {
-            return nil
-        }
-
-        return text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-    }
+//    public static func ht_searchSubtitles(_ payload: NSDictionary?, _ time: TimeInterval) -> String? {
+//        let predicate = NSPredicate(format: "(%f >= %K) AND (%f <= %K)", time, "from", time, "to")
+//
+//        guard let values = payload?.allValues, let result = (values as NSArray).filtered(using: predicate).first as? NSDictionary else {
+//            return nil
+//        }
+//
+//        guard let text = result.value(forKey: "text") as? String else {
+//            return nil
+//        }
+//
+//        return text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+//    }
     
     /// Search subtitle on time
     /// 方法更新，根据索引来查找字幕
