@@ -298,6 +298,62 @@ extension HTSubtitles {
         if time < (subtitleArray[safe: subtitleIndex]?["from"] as? TimeInterval ?? 0.0) {
             subtitleIndex = 0
         }
+     
+        if subtitleArray.count > subtitleIndex {
+            
+            let subtitleDict = subtitleArray[subtitleIndex]
+            
+            if let fromTime = subtitleDict["from"] as? TimeInterval,
+               let toTime = subtitleDict["to"] as? TimeInterval,
+               let text = subtitleDict["text"] as? String {
+                
+                if time < fromTime {
+                    /// 若该段时间没有字幕可显示，则直接返回
+                    return nil;
+                }
+                else if time >= fromTime && time <= toTime {
+                    
+                    /// 相同时间段已经查找过字幕了，则不再往下循环查找
+                    return text.trimmingCharacters(in: .whitespacesAndNewlines)
+                }
+                else {
+                    
+                    ///  该条字幕已经显示完毕，需要开始查找下一条
+                    var subtitleNextIndex = subtitleIndex + 1
+                    
+                    if subtitleArray.count > subtitleNextIndex {
+                        
+                        let subtitleDict = subtitleArray[subtitleNextIndex]
+                        
+                        if let fromTime = subtitleDict["from"] as? TimeInterval {
+                            
+                            if time < fromTime {
+                                /// 若该段时间没有字幕可显示，则直接返回
+                                return nil;
+                            }
+                            
+                        }
+                    }
+                    
+                    ///  该条字幕已经显示完毕，需要开始查找下下一条（因为下一条和下下一条可能相同）
+                    var subtitleNextNextIndex = subtitleIndex + 2
+                    
+                    if subtitleArray.count > subtitleNextNextIndex {
+                        
+                        let subtitleDict = subtitleArray[subtitleNextNextIndex]
+                        
+                        if let fromTime = subtitleDict["from"] as? TimeInterval{
+                            
+                            if time < fromTime {
+                                /// 若该段时间没有字幕可显示，则直接返回
+                                return nil;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
         
         // 从当前索引开始查找匹配的字幕
         for index in subtitleIndex..<subtitleArray.count {
@@ -307,7 +363,7 @@ extension HTSubtitles {
                   let text = subtitleDict["text"] as? String else {
                 continue
             }
-            
+    
             if time >= fromTime && time <= toTime {
                 subtitleIndex = index // 更新索引
                 return text.trimmingCharacters(in: .whitespacesAndNewlines)
