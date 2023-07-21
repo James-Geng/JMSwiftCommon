@@ -19,6 +19,11 @@ extension Int{
     /// 设计图尺寸 360
     public var fit : Double{
         
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            
+            return Double(self) * Double(YN_SCREENMIN / 460.0)
+        }
+        
         return Double(self) * Double(YN_SCREENMIN / 360.0)
     }
     public var cgfloat: Double {
