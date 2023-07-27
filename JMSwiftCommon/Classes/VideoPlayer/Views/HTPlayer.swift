@@ -398,7 +398,7 @@ public extension HTPlayer {
 
                         self.delegate?.didClickFullButton(in: self, didClickFullButton: var_isPortrait)
                         
-//                        self.bufferingSomeSecond()
+                        self.checkPlayStateWhenRotatingScreen()
                     }
                 }
                 
@@ -456,7 +456,7 @@ private extension HTPlayer {
         bufferTimer?.cancel()
 
         contentView.playState = .buffering
-        bufferTimer = HTGCDTimer(interval: 0, delaySecs: 3.0, repeats: false, action: { [weak self] _ in
+        bufferTimer = HTGCDTimer(interval: 0, delaySecs: 0.25, repeats: false, action: { [weak self] _ in
             /*
             guard let playerItem = self?.playerItem else { return }
             if playerItem.isPlaybackLikelyToKeepUp {
@@ -483,6 +483,22 @@ private extension HTPlayer {
 
         })
         bufferTimer?.start()
+    }
+    
+    func checkPlayStateWhenRotatingScreen() {
+        
+        if let player = self.player {
+            
+            if player.isPlaybackLikelyToKeepUp {
+                
+                self.play()
+                
+                self.delegate?.didPleyCompeteBuffer(in: self)
+            }
+            else {
+                self.bufferingSomeSecond()
+            }
+        }
     }
 
     func sliderTimerAction() {
